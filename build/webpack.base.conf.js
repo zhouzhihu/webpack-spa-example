@@ -16,6 +16,12 @@ module.exports = {
     filename: '[name].js'
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      'window.$': 'jquery'
+    }),
     new CopyWebpackPlugin([{
       from: config.dll.dir,
       to: config.dll.assetsDllRoot
