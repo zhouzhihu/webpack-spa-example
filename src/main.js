@@ -1,2 +1,6 @@
-import hello from './modules/hello'
-document.getElementById('app').appendChild(hello())
+$('#button').click(() => {
+  require.ensure([], function (require) {
+    var hello = require('./modules/hello').default
+    $('#app')[0].appendChild(hello())
+  })
+})
