@@ -2,10 +2,8 @@
   <div id="app">
     <div class="header">
       <div class="inner">
-        <img class="logo" src="./img/logo.png" alt="logo" @click="showBar">
+        <img class="logo" src="./assets/img/logo.png" alt="logo">
         <router-link to="/Home">主页</router-link>
-        <router-link to="/Play">播放器</router-link>
-        <router-link to="/AddressList">联系人</router-link>
         <router-link to="/About">关于我</router-link>
         <span class="github">
           追求卓越，成功就会在不经意间追上你！
@@ -15,11 +13,6 @@
     <transition name="fade" mode="out-in">
       <router-view class="view"></router-view>
     </transition>
-    <vue-progress-bar></vue-progress-bar>
-    <!--侧边栏-->
-    <EgdSideBar :show-sidebar.sync="showSidebar"></EgdSideBar>
-    <!--侧边栏遮罩层-->
-    <div v-if="showSidebar" class="sidebar-mask" @click="hiddenBar"></div>
   </div>
 </template>
 

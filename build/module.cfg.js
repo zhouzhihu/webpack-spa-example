@@ -4,6 +4,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
   preLoaders: [
     {
+      test: /\.vue$/,
+      loader: 'eslint',
+      exclude: /node_modules/
+    },
+    {
       test: /\.js$/,
       loader: 'eslint',
       exclude: /node_modules/
@@ -11,8 +16,8 @@ module.exports = {
   ],
   loaders: [
     {
-      test: require.resolve('jquery'),
-      loader: 'expose?$!expose?jQuery'
+      test: /\.vue$/,
+      loader: 'vue'
     },
     {
       test: /\.js$/,

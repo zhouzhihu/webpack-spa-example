@@ -31,5 +31,6 @@ module.exports = {
     fallback: [path.join(__dirname, '../../node_modules')],
     alias: {'vue': 'vue/dist/vue.js'}
   },
+  vue: require('../vue.cfg.js'),
   module: require('../module.cfg.js')
 };

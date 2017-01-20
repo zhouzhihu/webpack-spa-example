@@ -7,7 +7,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: './src/main.js',
+    app: './src/app.js',
     components: utils.getComponentsEntries('./src/components/**/index.js')
   },
   output: {
@@ -16,19 +16,12 @@ module.exports = {
     filename: '[name].js'
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      'window.$': 'jquery'
-    }),
-    new CopyWebpackPlugin([{
-      from: config.dll.dir,
-      to: config.dll.assetsDllRoot
-    },{
-      from: config.static.dir,
-      to: config.static.assetsRoot
-    }]),
+    new CopyWebpackPlugin([
+      {
+        from: config.dll.dir,
+        to: config.dll.assetsDllRoot
+      }
+    ]),
     new webpack.DllReferencePlugin({
       context: config.projectRoot,
       manifest: require('../manifest.json'),
@@ -43,6 +36,7 @@ module.exports = {
   resolveLoader: {
     fallback: [path.join(__dirname, '../node_modules')]
   },
+  vue: require('./vue.cfg.js'),
   eslint: {
     formatter: require('eslint-friendly-formatter')
   },
